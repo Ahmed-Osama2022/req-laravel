@@ -49,19 +49,21 @@
 
   <div class="box">
     <a href="/posts">/posts</a>
-    <a href="/posts">/get_path</a>
 
     <br>
     <h3> =============== For Request =============== </h3>
     <a href="/req">/req</a>
+    <a href="/req/path">/get_path</a>
     <a href="/req/host">/req/host</a>
     <a href="/req/method">/req/method</a>
     <a href="/req/ip">/req/ip</a>
     <a href="/req/ips">/req/ips</a>
+
     @php
       $query = 'name=Ahmed&' . 'age=28&' . 'email=ahemd@ahmed.com&' . 'word=Hello world';
     @endphp
-    <a href=@php echo "/req/all?$query" @endphp>/req/all</a>
+    {{-- <a href=@php echo "/req/all?$query" @endphp>/req/all</a> --}}
+    <a href="/req/all?{{ $query }}">/req/all</a>
     <h3> =============== End for Request =============== </h3>
 
   </div>
