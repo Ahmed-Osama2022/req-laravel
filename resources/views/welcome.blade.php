@@ -58,7 +58,10 @@
     <a href="/req/method">/req/method</a>
     <a href="/req/ip">/req/ip</a>
     <a href="/req/ips">/req/ips</a>
-    <a href="/req/all">/req/all</a>
+    @php
+      $query = 'name=Ahmed&' . 'age=28&' . 'email=ahemd@ahmed.com&' . 'word=Hello world';
+    @endphp
+    <a href=@php echo "/req/all?$query" @endphp>/req/all</a>
     <h3> =============== End for Request =============== </h3>
 
   </div>
