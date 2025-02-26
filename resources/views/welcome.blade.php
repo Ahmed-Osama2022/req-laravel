@@ -22,6 +22,7 @@
       margin: 8px;
       font-size: 18pt;
       /* color: #565656; */
+      max-width: max-content;
 
 
     }
@@ -32,8 +33,6 @@
   </style>
 
 </head>
-
-
 
 <body>
   <h1>Laravel | Request | Study</h1>
