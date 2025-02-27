@@ -63,6 +63,9 @@
     @endphp
     {{-- <a href=@php echo "/req/all?$query" @endphp>/req/all</a> --}}
     <a href="/req/all?{{ $query }}">/req/all</a>
+    <a href="/req/collect?{{ $query }}">/req/collect</a>
+    <a href="/req/tojson?{{ $query }}">/req/to Json</a>
+    <a href="/req/each?{{ $query }}">/req/forEach | Extract the items</a>
     <h3> =============== End for Request =============== </h3>
 
   </div>

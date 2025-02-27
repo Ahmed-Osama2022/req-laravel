@@ -73,4 +73,29 @@ class ReqController extends Controller
     return $request->all();
     // return $data['name'] ?? 'Name is empty value!';
   }
+  public function collect_input(Request $request)
+  {
+    $data = $request->collect();
+    // dd($data);
+
+    // return $data;
+    // return "Name: " . $data->get('name') . " - Age: " . $data->get('age');
+    return "The number of query items is: "  . "<h3 style='display: inline-block'>" .  $data->count() . "</h3>";
+  }
+  public function to_json(Request $request)
+  {
+    return $request->collect()->toJson(); // Returns a json string!
+    // OPTIONAL
+    // return json_decode($request->collect()->toJson()); // It will parse the JSON string into JSON format!
+  }
+  public function extract_data(Request $request)
+  {
+    $data = $request->collect();
+
+    $arr = [];
+    $data->each(function ($item, $key) use ($arr) {
+      array_push($arr, $key);
+      var_dump($arr);
+    });
+  }
 }

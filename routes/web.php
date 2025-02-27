@@ -38,3 +38,6 @@ Route::get('/req/ip', [ReqController::class, 'get_ip']);
 Route::get('/req/ips', [ReqController::class, 'get_ips']);
 
 Route::get('/req/all', [ReqController::class, 'get_all_input']);
+Route::get('/req/collect', [ReqController::class, 'collect_input']);
+Route::get('/req/tojson', [ReqController::class, 'to_json']);
+Route::get('/req/each', [ReqController::class, 'extract_data']);
