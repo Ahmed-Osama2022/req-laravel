@@ -5,7 +5,6 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ReqController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Expr\FuncCall;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,9 +71,33 @@ Route::post('/custom', function (Request $request) {
   // $inputs = $request->except('username');
 
   // dd($inputs);
-  return $inputs;
+  if ($request->has('password', 'username')) {
+    echo "Username, Password Found!" . "\n";
+    // return   redirect('/req');
+  }
 
+  return $inputs;
 
   // Here is "Laravel magic" => Booooooooooooom
   // return $request->username;
 });
+
+// NOTE: This works with all types of data; not just for forms
+// e.g.
+Route::get('/data', function (Request $request) {
+
+  if ($request->hasAny(['name', 'password'])) {
+    return "<h3 style='color: green;' >" . "Values are present!" . "</h3>";
+  } else {
+    return "<h3 style='color: red;' >" . "Values are not found!" . "</h3>";
+  }
+});
+
+
+/**
+ * \ ================== See also ===================
+ * $request->hasAny(['username', 'password']);
+ * $request->missing('username');
+ * $request->merge(['username' => 'Ahmed ali']);
+ * $request->mergeIfMissing(['username' => 'Ahmed ali']);
+ */
