@@ -64,8 +64,13 @@
     {{-- <a href=@php echo "/req/all?$query" @endphp>/req/all</a> --}}
     <a href="/req/all?{{ $query }}">/req/all</a>
     <a href="/req/collect?{{ $query }}">/req/collect</a>
+    <a href="/req/count?{{ $query }}">/req/count</a>
     <a href="/req/tojson?{{ $query }}">/req/to Json</a>
     <a href="/req/each?{{ $query }}">/req/forEach | Extract the items</a>
+    {{-- ========================= INPUT ======================== --}}
+    <h3> ======== Inputs ============ </h3>
+    <a href="/req/input?{{ $query }}">/req/input</a>
+    <a href="/req/form_data">Form to collect the data</a>
     <h3> =============== End for Request =============== </h3>
 
   </div>

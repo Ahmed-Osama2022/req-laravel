@@ -73,7 +73,13 @@ class ReqController extends Controller
     return $request->all();
     // return $data['name'] ?? 'Name is empty value!';
   }
-  public function collect_input(Request $request)
+
+  public function collect(Request $request)
+  {
+    $data = $request->collect();
+    return $data;
+  }
+  public function count(Request $request)
   {
     $data = $request->collect();
     // dd($data);
@@ -97,5 +103,18 @@ class ReqController extends Controller
       array_push($arr, $key);
       var_dump($arr);
     });
+  }
+  /**
+   * =====================================================
+   * | =============== USING INPUT METHODS ===============
+   * | ========== NOTE: USUALLY USED WITH FORMS ==========
+   * =====================================================
+   */
+  public function get_inputs(Request $request)
+  {
+    $data = $request->input();
+
+    // return $data;
+    return $data['name'];
   }
 }
